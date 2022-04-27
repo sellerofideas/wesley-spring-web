@@ -1,0 +1,45 @@
+<div th:replace="compartilhado/top"></div>
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800">Edição de perfil</h1>
+        <p class="mb-4">
+            Aqui iremos editar o perfil
+        </p>
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4" style="padding: 30px;">
+            <form method="POST" th:action="@{'/perfis/' + ${perfil?.id} + '/atualizar'}">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" class="form-control" th:value="${perfil?.nome}" required id="nome" name="nome" placeholder="Digite o seu nome">
+                </div>
+                <div class="form-group">
+                    <label for="nomeArtistico">Nome artistico</label>
+                    <input type="text" class="form-control" required id="nomeArtistico" th:value="${perfil?.nomeArtistico}" placeholder="Como você quer ser conhecido?">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" required id="email" th:value="${perfil?.email}" placeholder="Digite o seu email">
+                </div>
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" class="form-control" required id="senha" th:value="${perfil?.senha}" placeholder="Digite o seu senha">
+                </div>
+                <div class="form-group">
+                    <label for="idade">Idade</label>
+                    <input type="date" class="form-control" required id="idade" th:value="${perfil?.idade}" placeholder="Digite data de nascimento">
+                </div>
+                <div class="form-group">
+                    <label for="bio">Bio</label>
+                    <textarea class="form-control" id="bio" name="bio" placeholder="Crie a sua bio" th:inline="text">[[${perfil.bio}]]</textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+            <a href="#" th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \'' + @{/perfis/{id}(id=${perfil.id})} + '/excluir\' } '" class="btn btn-danger">Excluir</a>
+        </div>
+
+    </div>
+    <!-- /.container-fluid -->
+<div th:replace="compartilhado/baixo"></div>

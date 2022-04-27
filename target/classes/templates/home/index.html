@@ -1,0 +1,20 @@
+<div th:replace="compartilhado/top"></div>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Olá - <span th:text="${nome}"></span> seja muito bem vindo a sua área
+            Making-of</h1>
+    </div>
+                <!--div>
+                     <span th:text="${perfil.nomeArtistico}">Nome Artistico</span>
+                     <span th:text="${perfil.email}">Email </span>
+                     <span th:text="${perfil.idade}">Idade</span>
+                     <span th:text="${perfil.bio}">Bio</span>
+                    <td><a th:href="@{'/perfis/' + ${perfil.id}}" class="btn btn-warning">Alterar</a></td>
+                </!--div>
+                
+</div>
+<!-- /.container-fluid -->
+<div th:replace="compartilhado/baixo"></div>

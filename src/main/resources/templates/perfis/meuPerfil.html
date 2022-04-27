@@ -1,0 +1,53 @@
+<div th:replace="compartilhado/top"></div>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Perfis</h1>
+
+
+    <p class="mb-4">
+        Aqui serão listados os perfis da Making-of
+    </p>
+    <span><a href="/" class="btn btn-primary" style="margin: 20px;">Meu Perfil</a></span>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <a href="/perfis/novo" class="btn btn-primary" style="margin-right: 20px;">Novo</a>
+            <h6 class="m-0 font-weight-bold text-primary" style="display: inline-block;">Lista de perfis</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Bio</th>
+                            <th>Ver Perfil</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Bio</th>
+                            <th>Ver Perfil</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr th:each="perfil:${perfil}">
+                            <td th:text="${perfil.nomeArtistico}"></td>
+                            <td th:text="${perfil.email}"></td>
+                            <td th:text="${perfil.bio}"></td>
+                            <td><a th:href="@{/}" class="btn btn-large btn-success">Ver Perfil</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+<div th:replace="compartilhado/baixo"></div>
