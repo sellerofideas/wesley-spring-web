@@ -28,17 +28,6 @@ public class PerfisController {
     return "perfis/index";
   }
 
-  @GetMapping("/perfis/novo")
-  public String novo(){
-    return "perfis/novo";
-  }
-
-  @PostMapping("/perfis/criar")
-  public String criar(Perfil perfil){
-    repo.save(perfil);
-    return "redirect:/";
-  }
-
   //Editar perfil
   @RequestMapping("/perfis/{id}")
   public String busca(@PathVariable int id, Model model){

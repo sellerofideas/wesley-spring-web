@@ -23,7 +23,7 @@ public class LoginInterceptor implements HandlerInterceptor {
       }
       catch(Exception erro) {}
       
-      response.sendRedirect("/login");
+      response.sendRedirect("/novo");
       return false;
    }
 

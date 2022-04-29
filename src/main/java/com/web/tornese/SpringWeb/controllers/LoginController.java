@@ -32,8 +32,9 @@ public class LoginController {
       if(lembrar != null) tempoLogado = (60*60*24*365); // 1 ano de cookie
       CookieService.setCookie(response, "usuarioId", String.valueOf(adm.getId()), tempoLogado);
       CookieService.setCookie(response, "userName", String.valueOf(adm.getNome()), tempoLogado);
+      CookieService.setCookie(response, "nomeArtistico", String.valueOf(adm.getNomeArtistico()), tempoLogado);
+      CookieService.setCookie(response, "userEmail", String.valueOf(adm.getEmail()), tempoLogado);
       CookieService.setCookie(response, "userBio", String.valueOf(adm.getBio()), tempoLogado);
-      CookieService.setCookie(response, "userNomeAristico", String.valueOf(adm.getNomeArtistico()), tempoLogado);
       CookieService.setCookie(response, "userIdade", String.valueOf(adm.getIdade()), tempoLogado);
       return "redirect:/";
     }
@@ -41,6 +42,16 @@ public class LoginController {
     return "login/index";
   }
   
+  @GetMapping("/novo")
+  public String novo(){
+    return "perfis/novo";
+  }
+
+  @PostMapping("/criar")
+  public String criar(Perfil perfil){
+    repo.save(perfil);
+    return "redirect:/login";
+  }
 
   @GetMapping("/sair")
   public String logout(HttpServletResponse response) throws IOException{
