@@ -54,24 +54,19 @@ public class PerfisController {
   }*/
 
   //Ver perfil 2° maneira
-  @PostMapping("/id/{id}")
+  @GetMapping("/id/{id}")
   public ModelAndView show(@PathVariable int id) {
     Optional<Perfil> optional = this.repo.findById(id);
     if(optional.isPresent()) {
       Perfil perfil = optional.get();
       ModelAndView mv = new ModelAndView("perfis/meuPerfil");
-      mv.addObject(|"perfil", perfil)
+      mv.addObject("perfil", perfil);
       return mv;
     }
     else {
       return new ModelAndView("redirect:/perfis");
     }
   }
-
-
-
-
-
 
   //Botão de atualização de perfil
   @PostMapping("/perfis/{id}/atualizar")
