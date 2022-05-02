@@ -41,6 +41,7 @@
                             <td th:text="${perfil.email}"></td>
                             <td th:text="${perfil.bio}"></td>
                             <td><a th:href="@{/}" class="btn btn-large btn-success">Ver Perfil</a></td>
+                            <td><a th:href="@{'/administradores/' + ${administrador.id}}" class="btn btn-warning">Alterar</td>
                         </tr>
                     </tbody>
                 </table>

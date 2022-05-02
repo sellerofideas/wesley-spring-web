@@ -40,6 +40,18 @@ public class PerfisController {
     return "/perfis/editar";
   }
 
+  //Ver Perfil
+  @RequestMapping("/id/{id}")
+  public String ver(@PathVariable int id, Model model){
+    Optional<Perfil> perfis = repo.findById(id);
+    try{
+      model.addAttribute("perfil", perfis.get());
+    }
+    catch(Exception err){ return "redirect:/perfis"; }
+
+    return "/meuPerfil";
+  }
+
   //Botão de atualização de perfil
   @PostMapping("/perfis/{id}/atualizar")
   public String atualizar(@PathVariable int id, Perfil Perfil){
