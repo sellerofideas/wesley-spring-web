@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class PerfisController {
@@ -41,7 +42,7 @@ public class PerfisController {
   }
 
   //Ver Perfil
-  @RequestMapping("/id/{id}")
+  /*@RequestMapping("/id/{id}")
   public String ver(@PathVariable int id, Model model){
     Optional<Perfil> perfis = repo.findById(id);
     try{
@@ -49,8 +50,28 @@ public class PerfisController {
     }
     catch(Exception err){ return "redirect:/perfis"; }
 
-    return "/meuPerfil";
+    return "/perfis/meuPerfil";
+  }*/
+
+  //Ver perfil 2° maneira
+  @PostMapping("/id/{id}")
+  public ModelAndView show(@PathVariable int id) {
+    Optional<Perfil> optional = this.repo.findById(id);
+    if(optional.isPresent()) {
+      Perfil perfil = optional.get();
+      ModelAndView mv = new ModelAndView("perfis/meuPerfil");
+      mv.addObject(|"perfil", perfil)
+      return mv;
+    }
+    else {
+      return new ModelAndView("redirect:/perfis");
+    }
   }
+
+
+
+
+
 
   //Botão de atualização de perfil
   @PostMapping("/perfis/{id}/atualizar")
