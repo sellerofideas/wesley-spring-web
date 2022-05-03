@@ -17,19 +17,19 @@
                 </div>
                 <div class="form-group">
                     <label for="nomeArtistico">Nome artistico</label>
-                    <input type="text" class="form-control" required id="nomeArtistico" th:value="${perfil?.nomeArtistico}" placeholder="Como você quer ser conhecido?">
+                    <input type="text" class="form-control" required id="nomeArtistico"  name="nomeArtistico"th:value="${perfil?.nomeArtistico}" placeholder="Como você quer ser conhecido?">
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" required id="email" th:value="${perfil?.email}" placeholder="Digite o seu email">
+                    <input type="email" class="form-control" required id="email" name="email" th:value="${perfil?.email}" placeholder="Digite o seu email">
                 </div>
                 <div class="form-group">
                     <label for="senha">Senha</label>
-                    <input type="password" class="form-control" required id="senha" th:value="${perfil?.senha}" placeholder="Digite o seu senha">
+                    <input type="password" class="form-control" required id="senha" name="senha" th:value="${perfil?.senha}" placeholder="Digite o seu senha">
                 </div>
                 <div class="form-group">
                     <label for="idade">Idade</label>
-                    <input type="date" class="form-control" required id="idade" th:value="${perfil?.idade}" placeholder="Digite data de nascimento">
+                    <input type="date" class="form-control" required id="idade" name="idade" th:value="${perfil?.idade}" placeholder="Digite data de nascimento">
                 </div>
                 <div class="form-group">
                     <label for="bio">Bio</label>
@@ -37,7 +37,6 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
-            <a href="#" th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \'' + @{/perfis/{id}(id=${perfil.id})} + '/excluir\' } '" class="btn btn-danger">Excluir</a>
         </div>
 
     </div>

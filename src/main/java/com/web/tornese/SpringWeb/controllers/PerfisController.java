@@ -30,7 +30,7 @@ public class PerfisController {
   }
 
   //Editar perfil
-  @RequestMapping("/perfis/{id}")
+   @RequestMapping("/perfil/{id}")
   public String busca(@PathVariable int id, Model model){
     Optional<Perfil> perfis = repo.findById(id);
     try{
@@ -40,6 +40,19 @@ public class PerfisController {
 
     return "/perfis/editar";
   }
+
+  /*@RequestMapping("/perfis/{id}")
+  public String busca(@PathVariable int id, Model model){
+    Optional<Perfil> perfis = this.repo.findById(id);
+    if(perfis.isPresent()) {
+      Perfil perfil = perfis.get();
+    try{
+      model.addAttribute("perfil", perfis.get());
+    }
+    else{ return "redirect:/"; }
+
+    return "/perfis/editar";
+  }*/
 
   //Ver Perfil
   /*@RequestMapping("/id/{id}")
@@ -82,9 +95,9 @@ public class PerfisController {
   }
 
   //Mudar para PostMapping
-  @RequestMapping("/perfis/{id}/excluir")
+  @RequestMapping("/perfil/{id}/excluir")
   public String excluir(@PathVariable int id){
     repo.deleteById(id);
-    return "redirect:/perfis";
+    return "redirect:/login";
   }
 }

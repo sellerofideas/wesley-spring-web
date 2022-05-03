@@ -2,42 +2,250 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
+  <!-- Page Heading -->
+  <main class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Olá - <span th:text="${nome}"></span> seja muito bem vindo a sua área
+      Making-of</h1>
+  </main>
+  
+  <div class="container-fluid">
+
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Olá - <span th:text="${nome}"></span> seja muito bem vindo a sua área
-            Making-of</h1>
+      <h2 class="h5 mb-0 text-gray-600" th:text="${nomeArtistico}">Nome</h2>
+      
+        <span class="h5 mb-0 text-gray-600"  th:text="${idade}">Idade</span>
+        <span class="h5 mb-0 text-gray-600"  th:text="${email}">Email</span>
+        <span class="h5 mb-0 text-gray-600"  th:text="${bio}">Bio</span>
+      
     </div>
-                <div>
-                     <span th:text="${nomeArtistico}">Nome Artistico</span>
-                     <span th:text="${idade}">Idade</span>                     
-                     <span th:text="${email}">Email</span>
-                     <span th:text="${bio}">Bio</span>
+
+    <div class="row">
+
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Conclusão de Curso
                 </div>
-
-                <div>
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Oportunidades</h5>
-                          <p class="card-text">Aqui estarão algumas oportunidades para o mercado</p>
-                          <a href="#" class="btn btn-primary">Conhecer</a>
-                        </div>
-                      </div>
-
-                      <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Jobs contratados</h5>
-                          <p class="card-text">Aqui aparecerá os jobs que você já fez</p>
-                          <a href="#" class="btn btn-primary">Detalhes</a>
-                        </div>
-                      </div>
-                    <p>Visualização</p>      
-                    <p>Valores recebidos</p>                 
-                    <p class="btn btn-primary">Depoimentos</p>                 
-                    <p>Fodabeeks</p>   
-
+                <div class="row no-gutters align-items-center">
+                  <div class="col-auto">
+                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                  </div>
+                  <div class="col">
+                    <div class="progress progress-sm mr-2">
+                      <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
                 </div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                  JOBS (REALIZADOS)</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                  VALORES (RECEBIDOS)</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                  Valores (A receber)</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                  SOLICITAÇÕES PENDENTES</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-comments fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                  Contribuições com a comunidade</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-comments fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                  SOLICITAÇÕES PENDENTES</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-comments fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                  SOLICITAÇÕES PENDENTES</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-comments fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shadow mb-4">
+      <!-- Card Header - Accordion -->
+      <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button"
+        aria-expanded="true" aria-controls="collapseCardExample">
+        <h6 class="m-0 font-weight-bold text-primary">DEPOIMENTOS</h6>
+      </a>
+      <!-- Card Content - Collapse -->
+      <div class="collapse show" id="collapseCardExample">
+        <div class="card-body">
+          Aqui estarão alguns depoimentos de colegas sobre você!
+        </div>
+      </div>
+    </div>
+
+    <div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Oportunidades</h6>
+      </div>
+      <div class="card-body">
+        Conheças as oportunidades disponíveis para você agora!
+        <a href="#" class="btn btn-primary">Encontrar</a>
+      </div>
+    </div>
+
+    <div class="row">
+
+      
+
+      <div class="col-lg-6">
+
+        <!-- Dropdown Card Example -->
+        <div class="card shadow mb-4">
+          <!-- Card Header - Dropdown -->
+          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Meu perfil</h6>
+            <div class="dropdown no-arrow">
+              <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                aria-labelledby="dropdownMenuLink">
+                <div class="dropdown-header">Menu suspenso:</div>
+                <a class="dropdown-item" th:href="@{'/id/'+${id}}">Meu perfil</a>
+                <a class="dropdown-item" href="/perfis">Ver outros perfis</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Outra opção</a>
+              </div>
+            </div>
+          </div>
+          <!-- Card Body -->
+          <div class="card-body">Clique no menu para escolher a opção e compartilhar seu perfil
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <hr>
+    <div>
+      <p>Configurações de perfil</p>
+      <a href="#" th:href="@{'/perfil/' + ${id}}" class="btn btn-warning">Alterar</a>
+      <!--a th:href="@{'/perfil/' + ${perfil.id}} + '/atualizar'" class="btn btn-warning">Alterar</a-->
+    
+    
+      <a href="#"
+        th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \'' + @{/perfil/{id}(id=${id})} + '/excluir\' } '"
+        class="btn btn-danger">Excluir</a>
+      <!--a-- href="#" th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \'' + @{/perfil/{id}(id=${perfil.id})} + '/excluir\' } '" class="btn btn-danger">Excluir</!--a-->
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+
 </div>
+
+
+
+</main>
 <!-- /.container-fluid -->
 <div th:replace="compartilhado/baixo"></div>
