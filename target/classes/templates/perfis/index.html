@@ -9,7 +9,6 @@
     <p class="mb-4">
         Aqui serão listados os perfis da Making-of
     </p>
-    <span><a href="/" class="btn btn-primary" style="margin: 20px;">Meu Perfil</a></span>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -40,8 +39,6 @@
                             <td th:text="${perfil.email}"></td>
                             <td th:text="${perfil.bio}"></td>
                             <td><a th:href="@{'/id/'+${perfil.id}}" class="btn btn-large btn-success">Ver Perfil</a></td>
-
-                            
                         </tr>
                     </tbody>
                 </table>

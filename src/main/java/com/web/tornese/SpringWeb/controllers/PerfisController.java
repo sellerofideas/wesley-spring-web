@@ -88,10 +88,22 @@ public class PerfisController {
     if(!repo.existsById(id)){
       return "redirect:/perfis";
     }
-
     repo.save(Perfil);
+    return "redirect:/meuPerfil/{id}";
+  }
 
-    return "redirect:/perfis";
+  @GetMapping("/meuPerfil/{id}")
+  public ModelAndView meuPerfil(@PathVariable int id) {
+    Optional<Perfil> optional = this.repo.findById(id);
+    if(optional.isPresent()) {
+      Perfil perfil = optional.get();
+      ModelAndView mv = new ModelAndView("perfis/meuPerfil");
+      mv.addObject("perfil", perfil);
+      return mv;
+    }
+    else {
+      return new ModelAndView("perfis/meuPerfil");
+    }
   }
 
   //Mudar para PostMapping

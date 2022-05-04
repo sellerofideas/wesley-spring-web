@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Meu perfil</title>
+    <title>Painel de controle</title>
 
     <!-- Custom fonts for this template-->
     <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -23,6 +23,8 @@
 </head>
 
 <body id="page-top">
+
+
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -45,7 +47,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard - <span th:text="${nome}"></span></a>
+                    <span>Painel de Controle </a>
             </li>
 
             <!-- Divider -->
@@ -62,6 +64,10 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>Perfis</span></a>
             </li>
+
+            
+            <span><a th:href="@{'/id/'+${id}}" class="btn btn-info" style="margin: 20px;">Meu
+                Perfil</a></span>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -243,7 +249,8 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="mr-2 d-none d-lg-inline text-gray-600 small"
+                                th:text="${nomeArtistico}">Perfil Making-of</span>
                                 <img class="img-profile rounded-circle" src="/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
@@ -253,7 +260,7 @@
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Perfis
                                 </a>
-                                
+
 
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
