@@ -1,0 +1,232 @@
+.dados-ul {
+    list-style: none;
+    padding: 15px;
+    font-size: .9em;
+}
+
+summary {
+    list-style: none;
+    position: relative;
+    max-height: 400px;
+}
+
+.navbar-nav {
+    display: contents;
+}
+
+.margin-left {
+    margin-left: 50px;
+}
+
+.margin-rigth {
+    margin-right: 50px;
+}
+
+.margin100 {
+    margin: 30px 100px;
+}
+
+.size {
+    min-width: 30px;
+}
+
+.capa {
+    background-color: blue;
+    width: 1149px;
+    height: 330px;
+    position: absolute;
+    top: 72px;
+}
+
+.div-capa {
+    height: 430px;
+    width: 1148px;
+    margin: auto;
+    background-color: white;
+}
+
+.perfil {
+    background-color: blue;
+    height: 200px;
+    width: 200px;
+    border-radius: 20%;
+    position: absolute;
+    left: 140px;
+    bottom: 440px;
+}
+
+.foto-perfil {
+    background-color: white;
+    height: 195px;
+    width: 195px;
+    border-radius: 20%;
+    position: absolute;
+    left: 130px;
+    top: 246px;
+    border-color: blue;
+}
+
+.div-polaroide-dados {
+    display: flex;
+}
+
+.div-roadmap- {
+    display: flex;
+}
+
+#polaroide {
+    width: 800px;
+    height: 449px;
+    background-color: black;
+    margin-right: 15px;
+}
+
+#dados {
+    width: 300px;
+    margin-left: 15px;
+}
+
+#dados-pessoais {
+    width: 300px;
+    top: 0px;
+    margin: 5px;
+}
+
+#caracteristicas {
+    width: 300px;
+    top: 100px;
+    margin: 5px;
+}
+
+#comportamental {
+    width: 300px;
+    top: 200px;
+    margin: 5px;
+}
+
+#portifolio {
+    font-size: 1em;
+}
+
+#roadmap {
+    width: 800px;
+    height: 449px;
+    background-color: black;
+    margin-right: 15px;
+}
+
+.card-header {
+    display: none !important;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    border: none;
+}
+
+.polaroide-foto {
+    height: 442px;
+    margin: auto;
+}
+
+.polaroide-seta {
+    background-color: transparent;
+}
+
+.nome {
+    position: absolute;
+    z-index: 2;
+    top: 370px;
+    left: 351px;
+    font-size: 1.5em;
+    color: black !important;
+}
+
+.bio {
+    position: absolute;
+    z-index: 2;
+    top: 410px;
+    left: 350px;
+    font-size: 1em;
+    width: 233px;
+    line-height: 1em;
+    color: grey;
+}
+
+.idade {
+    position: absolute;
+    z-index: 2;
+    top: 453px;
+    left: 350px;
+    width: 286px;
+    line-height: 1em;
+}
+
+.anos {
+    position: absolute;
+    z-index: 2;
+    top: 453px;
+    left: 448px;
+    font-size: .9em;
+    width: 286px;
+    line-height: 1em;
+}
+
+.sidenav-ul {
+    position: absolute;
+    z-index: 2;
+    top: 437px;
+    left: 848px;
+    font-size: .9em;
+    width: 381px;
+    line-height: 1em;
+    display: flex;
+    list-style: none;
+    justify-content: end;
+}
+
+.sidenav-ul-a {
+    padding: 10px;
+}
+
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
+    padding-left: 0rem;
+    padding-right: 0rem;
+}
+
+.sidenav-ul>a:hover {
+    text-decoration: none;
+    background-color: blue;
+    border-radius: 10px;
+    color: white;
+    border-radius: 0.35rem;
+}
+
+.center {
+    margin: auto;
+}
+
+body,
+#content {
+    background-color: #dbdcdf;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.h1 {
+    font-size: 1.2em;
+    color: black;
+    padding: 15px;
+}
+
+.footer {
+    background-color: black !important;
+    color: white;
+}

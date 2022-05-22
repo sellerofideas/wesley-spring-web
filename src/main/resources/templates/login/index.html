@@ -19,10 +19,14 @@
 
     <!-- Custom styles for this template-->
     <link href="/css/sb-admin-2.min.css" rel="stylesheet">
-
+    <style>
+        .bg-black {
+            background-color: black;
+        }
+    </style>
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-black">
 
     <div class="container">
 
@@ -35,16 +39,20 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6 d-none d-lg-block ">
+                                <img class="bg-login-image" src="https://source.unsplash.com/450x550/?film" alt="">
+                            </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Seja muito bem vindo</h1>
+                                        <h1 class="w-100 text-gray-900 mb-0">Plataforma</h1>
+                                        <h2 class="text-gray-900 mb-4">Making-of!</h2>
+                                        <p>Uma comunidade onde artistas se encontram.</p>
                                     </div>
                                     <form class="user" action="/logar" method="POST">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="email" name="email" aria-describedby="emailHelp"
+                                            <input type="email" class="form-control form-control-user" id="email"
+                                                name="email" aria-describedby="emailHelp"
                                                 placeholder="Digite o seu email">
                                         </div>
                                         <div class="form-group">
@@ -53,18 +61,22 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="lembrar" name="lembrar">
+                                                <input type="checkbox" class="custom-control-input" id="lembrar"
+                                                    name="lembrar">
                                                 <label class="custom-control-label" for="lembrar">Lembrar de mim</label>
                                             </div>
                                         </div>
 
-                                        <div th:if="${erro != null}" th:text="${erro}" class="alert alert-danger" role="alert"></div>
+                                        <div th:if="${erro != null}" th:text="${erro}" class="alert alert-danger"
+                                            role="alert"></div>
 
                                         <button class="btn btn-primary btn-user btn-block">
                                             Login
                                         </button>
                                     </form>
-                                    <a th:href="@{/novo}" class="btn btn-warning" style="margin: 20px auto;">Cadastrar</a>
+                                    <div class="d-flex justify-content-center w-auto m-auto">
+                                        <a th:href="@{/novo}" class="btn btn-warning px-5" style="margin: 20px auto;">Cadastrar</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
