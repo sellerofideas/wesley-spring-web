@@ -1,44 +1,464 @@
-<div th:replace="compartilhado/top"></div>
-    <!-- Begin Page Content -->
-    <div class="container-fluid">
+<!DOCTYPE html>
+<html lang="pt-br">
 
-        <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Novo Perfil</h1>
-        <p class="mb-4">
-            Aqui iremos cadastrar um novo perfil Making-of
-        </p>
+<head>
 
-        <!-- DataTales Example -->
-        <div class="card shadow mb-4" style="padding: 30px;">
-            <form method="POST" action="/criar" onsubmit="return confirm('Confirma ação')">
-                <div class="form-group">
-                    <label for="nome">Nome</label>
-                    <input type="text" class="form-control" required id="nome" name="nome" placeholder="Digite o seu nome">
-                </div>
-                <div class="form-group">
-                    <label for="nomeArtistico">Nome artistico</label>
-                    <input type="text" class="form-control" required id="nomeArtistico" name="nomeArtistico" placeholder="Como você quer ser conhecido?">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" required id="email" name="email" placeholder="Digite o seu email">
-                </div>
-                <div class="form-group">
-                    <label for="senha">Senha</label>
-                    <input type="password" class="form-control" required id="senha" name="senha" placeholder="Digite o seu senha">
-                </div>
-                <div class="form-group">
-                    <label for="idade">Idade</label>
-                    <input type="date" class="form-control" required id="idade" name="idade" placeholder="Digite data de nascimento">
-                </div>
-                <div class="form-group">
-                    <label for="bio">Bio</label>
-                    <textarea class="form-control" id="bio" name="bio" placeholder="Digite a sua bio"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
-        </div>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    </div>
-    <!-- /.container-fluid -->
-<div th:replace="compartilhado/baixo"></div>
+    <title>Cadastro Making-of</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+    <style>
+        .bg-black {
+            background-color: black;
+        }
+
+        .main-label {
+            font-size: 1.9em;
+        }
+
+        .w-70 {
+            width: 70% !important;
+        }
+
+        .m-ajusted {
+            margin: 2px;
+            left: -2px;
+            top: 3px;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-black sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+                <div class="sidebar-brand-icon rotate-n-15">
+                </div>
+                <div class="sidebar-brand-text mx-3 p-3">Comunidade Making-of</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item disabled">
+                <span class="nav-link">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Painel de Controle </span>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Interface
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="/perfis">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Artistas</span></a>
+            </li>
+
+
+            <div class="d-flex justify-content-center"><button th:href="@{'/id/'+${id}}"
+                    class="btn btn-primary px-5 m-3" disabled>Cursos</button></div>
+            <div class="d-flex justify-content-center"><button th:href="@{'/id/'+${id}}" class="btn btn-primary m-3"
+                    disabled>Conteúdos gratuitos</button></div>
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-black topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small"
+                                placeholder="Buscar artista..." aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-dark" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+                        <ul class="center nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                            <li><a href="/home" class="nav-link px-2 text-secondary">Home</a></li>
+                            <li><a href="/home/#produtos" class="nav-link px-2 text-white">Produtos</a></li>
+                            <li><a href="#off play" class="nav-link px-2 text-white">OFF Play</a></li>
+                            <li><a href="/home/#faqs" class="nav-link px-2 text-white">FAQs</a></li>
+                            <li><a href="/home/#sobre" class="nav-link px-2 text-white">Sobre</a></li>
+                        </ul>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="text-end m-auto">
+                            <a type="button" class="btn btn-outline-light me-2" href="/login">Login</a>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid row">
+
+                    <!-- Page Heading -->
+
+                    <div>
+                        <h1 class="h3 mb-2 text-gray-800 text-center d-block">Cadastro Making-of</h1>
+                        <div class="d-flex justify-content-center">
+                            <p class="mb-4 text-center d-block w-50">
+                                Você está se cadastrando na plataforma Making-of para criar seu perfil e participar da
+                                maior comunidade de
+                                artistas independentes
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4 w-70 p-4">
+                        <form method="POST" action="/criar" onsubmit="return confirm('Confirma ação')">
+                            <div class="row">
+                                <div class="col border p-3 border-danger">
+                                    <div class="form-group">
+                                        <label for="nome">Nome</label>
+                                        <input type="text" class="form-control" required id="nome" name="nome"
+                                            placeholder="Seu nome completo">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nomeArtistico">Nome artistico</label>
+                                        <input type="text" class="form-control" required id="nomeArtistico"
+                                            name="nomeArtistico" placeholder="Como você quer ser conhecido?">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control" required id="email" name="email"
+                                            placeholder="Seu e-mail profissional">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="senha">Senha</label>
+                                        <input type="password" class="form-control" required id="senha" name="senha"
+                                            placeholder="Crie sua senha">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="senha">Confirmação de senha</label>
+                                        <input type="password" class="form-control" required id="senha" name="senha"
+                                            placeholder="Confirme sua senha">
+                                    </div>
+                                    <div class="w-50 form-group">
+                                        <label for="idade">Data de nascimento</label>
+                                        <input type="date" class="form-control" required id="idade" name="idade"
+                                            placeholder="Data de nascimento">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="bio">Bio</label>
+                                        <textarea class="form-control" id="bio" name="bio"
+                                            placeholder="Escreva a sua bio"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="img-perfil">Foto de perfil</label>
+                                        <input type="img" class="form-control"><img src="" required
+                                            alt="upload da foto de perfil"></input>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="foto-capa">Foto de capa</label>
+                                        <input type="img" class="form-control"><img src="" required
+                                            alt="upload da foto de perfil"></input>
+                                    </div>
+                                </div>
+                                <div class="col border border-primary p-3 mx-1">
+                                    <div class="form-group">
+                                        <label for="polaroides">Polaroides</label>
+                                        <input type="img" class="form-control"><img src=""
+                                            alt="upload da foto de perfil"></input>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="monologos">Monólogos</label>
+                                        <input type="img" class="form-control"
+                                            placeholder="Cole o link do seu video aqui!"></input>
+                                    </div>
+
+                                    <p class="border-top pt-3">Para quais jobs você deseja se candidatar?</p>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="job" id="jobs">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            Ator/Atriz
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="job" id="jobs">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            Modelo manequim
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="job" id="jobs">
+                                        <label class="form-check-label" for="defaultCheck2">
+                                            Roteirista
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="job" id="jobs">
+                                        <label class="form-check-label" for="defaultCheck2">
+                                            Diretor (a)
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="job" id="jobs">
+                                        <label class="form-check-label" for="defaultCheck2">
+                                            Videomaker
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="job" id="jobs">
+                                        <label class="form-check-label" for="defaultCheck2">
+                                            Makeup
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="job" id="jobs">
+                                        <label class="form-check-label" for="defaultCheck2">
+                                            Continuista
+                                        </label>
+                                    </div>
+
+                                    <div class="my-3">
+                                        <label for="">Possui algum hobby? Escreva separando cada um por virgula.</label>
+                                        <textarea type="text" class="d-block form-control" name="hobbyes" id="hobbyes"
+                                            cols="30" rows="2"></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="border border-warning m-ajusted">
+                                    <div class="p-3">
+                                        <p>Esta sessão é importante para quem deseja participar de castings ou trabalhar
+                                            como modelo
+                                            manequim. Os dados abaixo facilitarão a busca pelo seu perfil em nossos
+                                            mecanismos de busca.
+                                        </p>
+                                    </div>
+                                    <div class="border w-100 m-auto p-3">
+                                        <p class="text-center">Sexo</p>
+                                        <div class="d-flex justify-content-center">
+                                            <div class="p-3">
+                                                <input type="radio" class="" name="sexo" id="feminino">
+                                                <label for="feminino">
+                                                    feminino
+                                                </label>
+                                            </div>
+                                            <div class="p-3">
+                                                <input type="radio" class="" name="sexo" id="masculino">
+                                                <label for="masculino">
+                                                    Masculino
+                                                </label>
+                                            </div>
+                                            <div class="p-3">
+                                                <input type="radio" class="" name="sexo" id="trans">
+                                                <label for="trans">
+                                                    Trans
+                                                </label>
+                                            </div>
+                                            <div class="p-2 m-0">
+                                                <input type="radio" name="sexo" id="outro" value="option2">
+                                                <label for="outro">Outro</label>
+                                                <input class="d-inline-block w-50 form-control" type="text"
+                                                    placeholder="Qual?" id="jobs">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="border w-100 m-auto p-3">
+                                        <p class="text-center">Cabelos</p>
+                                        <div class="d-flex justify-content-center">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input " type="radio" name="cabelos" id="preto"
+                                                    value="option1">
+                                                <label class="form-check-label" for="preto">Preto</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input " type="radio" name="cabelos" id="loiro"
+                                                    value="option2">
+                                                <label class="form-check-label" for="loiro">Loiro</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input " type="radio" name="cabelos"
+                                                    id="castanhos" value="option3">
+                                                <label class="form-check-label" for="castanhos">Castanhos</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input " type="radio" name="cabelos" id="ruivos"
+                                                    value="option3">
+                                                <label class="form-check-label" for="ruivos">Ruivos</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input " type="radio" name="cabelos"
+                                                    id="grisalhos" value="option3">
+                                                <label class="form-check-label" for="grisalhos">Grisalhos</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input " type="radio" name="cabelos"
+                                                    id="colorido" value="option3">
+                                                <label class="form-check-label" for="colorido">Pintado/Colorido</label>
+                                                <input class="px-3 mx-3 form-control" type="text"
+                                                    placeholder="Quias cores? Separe por virgula" id="jobs">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="border w-100 m-auto p-3">
+                                        <p class="text-center">Cor da pele</p>
+                                        <div class="d-flex justify-content-center">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="pele" id="preta"
+                                                    value="option1">
+                                                <label class="form-check-label" for="preta">Preta</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="pele" id="branca"
+                                                    value="option2">
+                                                <label class="form-check-label" for="branca">Branca</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="pele" id="parda"
+                                                    value="option1">
+                                                <label class="form-check-label" for="parda">Parda</label>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-center">
+                                            <div class="p-3">
+                                                <label class="d-block" for="fator-genetico">
+                                                    Algum fator genetico como vitiligo?
+                                                </label>
+                                                <input class="" type="radio" name="fator-genetico"
+                                                    id="fator-genetico-nao" value="option2">
+                                                <label class="form-check-label" for="fator-genetico-nao">Não</label>
+                                                <input class="" type="radio" name="fator-genetico"
+                                                    id="fator-genetico-sim" value="option2">
+                                                <label class="form-check-label" for="fator-genetico-sim">Sim</label>
+                                                <input type="text" class="form-control" placeholder="Qual?">
+                                            </div>
+                                            <div class="border-left p-3">
+                                                <label class="d-block" for="tatuagens">
+                                                    Possui tatuagens?
+                                                </label>
+                                                <input class="" type="radio" name="inlineRadioOptions"
+                                                    id="tatuagens-nao" value="option2">
+                                                <label class="form-check-label" for="tatuagens-nao">Não</label>
+                                                <input class="" type="radio" name="inlineRadioOptions" id="tatuagens"
+                                                    value="option2">
+                                                <label class="form-check-label" for="tatuagens">Sim</label>
+                                                <input type="text" class="form-control" placeholder="Quantas?">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row w-100 m-auto">
+                                        <div class="d-flex m-auto">
+                                            <div class="border m-1 p-3">
+                                                <p class="text-center">Altura</p>
+                                                <input class="form-control" type="text" placeholder="Digite o numero"
+                                                    id="jobs">
+                                            </div>
+                                            <div class="border m-1 p-3">
+                                                <p class="text-center">Calçado</p>
+                                                <input class="form-control" type="text" placeholder="Digite o numero"
+                                                    id="jobs">
+                                            </div>
+                                            <div class="border m-1 p-3">
+                                                <p class="text-center">Manequim</p>
+                                                <input class="form-control" type="text" placeholder="Digite o numero"
+                                                    id="jobs">
+                                            </div>
+                                        </div>
+                                        <div class="d-flex w-100 justify-content-center m-3">
+                                            <button type="submit" class="px-3 btn btn-primary">Enviar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="mx-3">
+                        <div class="card mb-3" style="width: 18rem;">
+                            <img src="https://source.unsplash.com/100x100/?film" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Oportunidades!</h5>
+                                <p class="card-text">Encontre oportunidades para o seu perfil aqui.</p>
+                                <a href="#" class="btn btn-primary">Encontrar mais</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+                <div th:replace="compartilhado/baixo"></div>
