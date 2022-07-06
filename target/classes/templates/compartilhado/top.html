@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Making-of - A maior comunidade de artistas independentes</title>
+    <title>Making-of - A melhor comunidade de artistas independentes</title>
 
     <!-- Custom fonts for this template-->
     <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -69,11 +69,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="/perfis">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Artistas</span></a>
+                    <span>Perfis</span></a>
             </li>
 
             
-            <div class="d-flex justify-content-center"><a th:href="@{'/id/'+${id}}" class="btn btn-primary px-5" style="margin: 20px;">Meu
+            <div class="d-flex justify-content-center"><a th:href="*{'/meuPerfil/'+{id}}" class="btn btn-primary px-5 m-3">Meu
                 Perfil</a></div>
 
             <!-- Divider -->
@@ -265,7 +265,7 @@
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="/perfis">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Artistas
+                                    Perfis
                                 </a>
 
 

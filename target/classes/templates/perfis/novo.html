@@ -32,11 +32,8 @@
             width: 70% !important;
         }
 
-        .m-ajusted {
-            margin: 2px;
-            left: -2px;
-            top: 3px;
-            position: relative;
+        .h-350 {
+            height: 350px !important;
         }
     </style>
 </head>
@@ -45,56 +42,6 @@
 
     <!-- Page Wrapper -->
     <div id="wrapper">
-
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-black sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-                <div class="sidebar-brand-icon rotate-n-15">
-                </div>
-                <div class="sidebar-brand-text mx-3 p-3">Comunidade Making-of</div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item disabled">
-                <span class="nav-link">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Painel de Controle </span>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link" href="/perfis">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Artistas</span></a>
-            </li>
-
-
-            <div class="d-flex justify-content-center"><button th:href="@{'/id/'+${id}}"
-                    class="btn btn-primary px-5 m-3" disabled>Cursos</button></div>
-            <div class="d-flex justify-content-center"><button th:href="@{'/id/'+${id}}" class="btn btn-primary m-3"
-                    disabled>Conteúdos gratuitos</button></div>
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-        </ul>
-        <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -147,12 +94,13 @@
                                 </form>
                             </div>
                         </li>
-                        <ul class="center nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        <ul class="center flex-wrap nav col-12 col-lg-auto mt-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                             <li><a href="/home" class="nav-link px-2 text-secondary">Home</a></li>
                             <li><a href="/home/#produtos" class="nav-link px-2 text-white">Produtos</a></li>
                             <li><a href="#off play" class="nav-link px-2 text-white">OFF Play</a></li>
                             <li><a href="/home/#faqs" class="nav-link px-2 text-white">FAQs</a></li>
                             <li><a href="/home/#sobre" class="nav-link px-2 text-white">Sobre</a></li>
+                            <li><a href="/perfis" class="nav-link px-2 text-white">Artistas</a></li>
                         </ul>
 
                         <div class="topbar-divider d-none d-sm-block"></div>
@@ -161,32 +109,33 @@
                         <li class="text-end m-auto">
                             <a type="button" class="btn btn-outline-light me-2" href="/login">Login</a>
                         </li>
-
                     </ul>
-
                 </nav>
                 <!-- End of Topbar -->
-                <!-- Begin Page Content -->
-                <div class="container-fluid row">
+                
 
                     <!-- Page Heading -->
-
                     <div>
-                        <h1 class="h3 mb-2 text-gray-800 text-center d-block">Cadastro Making-of</h1>
-                        <div class="d-flex justify-content-center">
-                            <p class="mb-4 text-center d-block w-50">
-                                Você está se cadastrando na plataforma Making-of para criar seu perfil e participar da
-                                maior comunidade de
-                                artistas independentes
-                            </p>
+                        <div>
+                            <h1 class="h3 mb-2 text-gray-800 text-center d-block">Cadastro Making-of</h1>
+                            <div class="d-flex justify-content-center">
+                                <p class="mb-4 text-center d-block w-50">
+                                    Você está se cadastrando na plataforma Making-of para criar seu perfil e participar
+                                    da
+                                    maior comunidade de
+                                    artistas independentes
+                                </p>
+                            </div>
                         </div>
                     </div>
+                <!-- Begin Page Content -->
 
+                <div class="container d-flex flex-wrap">
                     <!-- DataTales Example -->
-                    <div class="card shadow mb-4 w-70 p-4">
+                    <div class="card shadow mb-4 p-4">
                         <form method="POST" action="/criar" onsubmit="return confirm('Confirma ação')">
                             <div class="row">
-                                <div class="col border p-3 border-danger">
+                                <div class="col-12 col-lg border p-3 mb-1 mr-1 border-danger">
                                     <div class="form-group">
                                         <label for="nome">Nome</label>
                                         <input type="text" class="form-control" required id="nome" name="nome"
@@ -233,7 +182,7 @@
                                             alt="upload da foto de perfil"></input>
                                     </div>
                                 </div>
-                                <div class="col border border-primary p-3 mx-1">
+                                <div class="col-12 col-lg border border-primary p-3 mb-1">
                                     <div class="form-group">
                                         <label for="polaroides">Polaroides</label>
                                         <input type="img" class="form-control"><img src=""
@@ -299,7 +248,7 @@
                             </div>
 
                             <div class="row">
-                                <div class="border border-warning m-ajusted">
+                                <div class="col-12 border border-warning">
                                     <div class="p-3">
                                         <p>Esta sessão é importante para quem deseja participar de castings ou trabalhar
                                             como modelo
@@ -307,24 +256,24 @@
                                             mecanismos de busca.
                                         </p>
                                     </div>
-                                    <div class="border w-100 m-auto p-3">
+                                    <div class="border p-3">
                                         <p class="text-center">Sexo</p>
-                                        <div class="d-flex justify-content-center">
-                                            <div class="p-3">
+                                        <div class="d-flex justify-content-center flex-wrap">
+                                            <div class="form-check form-check-inline">
                                                 <input type="radio" class="" name="sexo" id="feminino">
-                                                <label for="feminino">
+                                                <label class="form-check-label" for="feminino">
                                                     feminino
                                                 </label>
                                             </div>
-                                            <div class="p-3">
+                                            <div class="form-check form-check-inline">
                                                 <input type="radio" class="" name="sexo" id="masculino">
-                                                <label for="masculino">
+                                                <label class="form-check-label" for="masculino">
                                                     Masculino
                                                 </label>
                                             </div>
-                                            <div class="p-3">
+                                            <div class="form-check form-check-inline">
                                                 <input type="radio" class="" name="sexo" id="trans">
-                                                <label for="trans">
+                                                <label class="form-check-label" for="trans">
                                                     Trans
                                                 </label>
                                             </div>
@@ -339,7 +288,7 @@
 
                                     <div class="border w-100 m-auto p-3">
                                         <p class="text-center">Cabelos</p>
-                                        <div class="d-flex justify-content-center">
+                                        <div class="d-flex justify-content-center flex-wrap">
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input " type="radio" name="cabelos" id="preto"
                                                     value="option1">
@@ -375,7 +324,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="border w-100 m-auto p-3">
+                                    <div class="border p-3">
                                         <p class="text-center">Cor da pele</p>
                                         <div class="d-flex justify-content-center">
                                             <div class="form-check form-check-inline">
@@ -423,7 +372,7 @@
                                     </div>
 
                                     <div class="row w-100 m-auto">
-                                        <div class="d-flex m-auto">
+                                        <div class="d-flex m-auto justify-content-center flex-wrap">
                                             <div class="border m-1 p-3">
                                                 <p class="text-center">Altura</p>
                                                 <input class="form-control" type="text" placeholder="Digite o numero"
@@ -447,17 +396,6 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
-
-                    <div class="mx-3">
-                        <div class="card mb-3" style="width: 18rem;">
-                            <img src="https://source.unsplash.com/100x100/?film" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Oportunidades!</h5>
-                                <p class="card-text">Encontre oportunidades para o seu perfil aqui.</p>
-                                <a href="#" class="btn btn-primary">Encontrar mais</a>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <!-- /.container-fluid -->

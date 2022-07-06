@@ -1,58 +1,201 @@
-<div th:replace="compartilhado/top"></div>
-<!-- Begin Page Content -->
-<div class="container-fluid">
+<!DOCTYPE html>
+<html lang="pt-br">
 
-    <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Artistas</h1>
+<head>
 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <p class="mb-4">
-        <a href="/home">Home</a>
-        <span href="/home">Cursos</span>
-    </p>
-    <!-- DataTales Example -->
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary" style="display: inline-block;"></h6>
-        </div>
-        <div class="card-body">
-            <div class="">
-                <table class="" id="dataTable" width="100%" cellspacing="0">
-                    <thead class="border-bottom">
-                        <tr>
-                            <th>Artistas</th>
-                            <th>Contato</th>
-                            <th>Bio</th>
-                            <th>Visualizar</th>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Artista</th>
-                            <th>Contato</th>
-                            <th>Bio</th>
-                            <th>Visualizar</th>
-                        </tr>
-                    </tfoot>
-                    <tbody>
-                        <tr class="border-bottom" th:each="perfil:${perfil}">
-                            <td class="py-4 w-25"><img class="rounded-circle px-3"
-                                    src="https://source.unsplash.com/70x70/?film" alt=""><span
-                                    th:text="${perfil.nomeArtistico}"></span></td>
+    <title>Making-of - A melhor comunidade de artistas independentes</title>
 
-                            <td class="p-3"><span th:text="${perfil.email}"></span><span
-                                    class="btn btn-success m-0 p-1 d-flex justify-content-center">whatsapp</span></td>
-                            <td class="p-3" th:text="${perfil.bio}"></td>
-                            <td class=""><a th:href="@{'/id/'+${perfil.id}}"
-                                    class="d-flex justify-content-center btn btn-large btn-success"><i
-                                        class="fa fa-search p-1"></i>Visualizar</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+    <!-- Custom fonts for this template-->
+    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
-</div>
-<!-- /.container-fluid -->
-<div th:replace="compartilhado/baixo"></div>
+    <!-- Custom styles for this template-->
+    <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+    <style>
+        .bg-black {
+            background-color: black;
+        }
+
+        .main-label {
+            font-size: 1.9em;
+        }
+
+        .w-70 {
+            width: 70% !important;
+        }
+    </style>
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-black topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small"
+                                placeholder="Buscar artista..." aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-dark" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown my-auto no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i></a>
+
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+                        <ul class="center flex-wrap nav col-12 col-lg-auto m-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                            <li><a href="/home" class="nav-link px-2 text-secondary">Home</a></li>
+                            <li><a href="/home/#produtos" class="nav-link px-2 text-white">Produtos</a></li>
+                            <li><a href="#off play" class="nav-link px-2 text-white">OFF Play</a></li>
+                            <li><a href="/home/#faqs" class="nav-link px-2 text-white">FAQs</a></li>
+                            <li><a href="/home/#sobre" class="nav-link px-2 text-white">Sobre</a></li>
+                        </ul>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="text-end m-auto">
+                            <a type="button" class="btn btn-outline-light me-2" href="/login">Login</a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End of Topbar -->
+                <!-- Begin Page Content -->
+                <div class="container">
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <!-- Page Heading -->
+                        <div class="d-flex">
+                            <h1 class="h3 my-auto p-3 text-gray-800">Perfis Making-of</h1>
+                            <div>
+                                <p class="pt-3 pb-0 my-auto text-center">Encontre o profissional certo para seu projeto audiovisual
+                                    aqui!</p><p class="text-center">Cadastre-se para ser encontrado, ou como produtor(a) e agente aqui <button class="btn btn-outline-primary">Cadastrar</button></p>
+                            </div>
+                        </div>
+                        <div class="card-header">
+                        </div>
+                        <div class="card-body">
+                            <div class="">
+                                <table class="w-100" id="dataTable" cellspacing="0">
+                                    <thead class="border-bottom">
+                                        <tr>
+                                            <th class="text-center">Perfis</th>
+                                            <th class="text-center">Contato</th>
+                                            <th class="text-center">Bio</th>
+                                            <th class="text-center">Visualizar</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th class="text-center">Perfis</th>
+                                            <th class="text-center">Contato</th>
+                                            <th class="text-center">Bio</th>
+                                            <th class="text-center">Visualizar</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr class="border-bottom" th:each="perfil:${perfil}">
+                                            <td class="py-5 d-flex justify-content-center">
+                                                <img class="rounded-circle px-3"
+                                                    src="https://source.unsplash.com/150x150/?film" alt="">
+                                            </td>
+
+                                            <td class="p-3 text-center">
+                                                <p class="border-bottom" th:text="${perfil.nomeArtistico}">nome Artistico</p>
+                                                <div class="">
+                                                    (<span th:text="${perfil.idade}">Idade</span>)
+                                                    <span> ,local</span>
+                                                </div>
+                                                <span th:text="${perfil.email}"></span>
+                                                <span
+                                                    class="btn btn-success m-0 p-1 d-flex justify-content-center">whatsapp</span>
+
+                                                <div class="p-3 d-flex justify-content-center">
+                                                    <span><a href="https://facebook.com" class="m-1 text-decoration-none"
+                                                            target="_blank" rel="external" alt="facebook">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                height="24" viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-3 7h-1.924c-.615 0-1.076.252-1.076.889v1.111h3l-.238 3h-2.762v8h-3v-8h-2v-3h2v-1.923c0-2.022 1.064-3.077 3.461-3.077h2.539v3z" />
+                                                            </svg>
+                                                        </a></span>
+                                                    <span><a href="https://linkedin.com" class="m-1 text-decoration-none"
+                                                            target="_blank" rel="external" alt="linkedin">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                height="24" viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                                            </svg>
+                                                        </a></span>
+                                                    <span><a href="https://instagram.com" class="m-1 text-decoration-none"
+                                                            target="_blank" rel="external" alt="instagram"><svg
+                                                                xmlns="http://www.w3.org/2000/svg" width="24"
+                                                                height="24" viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M15.233 5.488c-.843-.038-1.097-.046-3.233-.046s-2.389.008-3.232.046c-2.17.099-3.181 1.127-3.279 3.279-.039.844-.048 1.097-.048 3.233s.009 2.389.047 3.233c.099 2.148 1.106 3.18 3.279 3.279.843.038 1.097.047 3.233.047 2.137 0 2.39-.008 3.233-.046 2.17-.099 3.18-1.129 3.279-3.279.038-.844.046-1.097.046-3.233s-.008-2.389-.046-3.232c-.099-2.153-1.111-3.182-3.279-3.281zm-3.233 10.62c-2.269 0-4.108-1.839-4.108-4.108 0-2.269 1.84-4.108 4.108-4.108s4.108 1.839 4.108 4.108c0 2.269-1.839 4.108-4.108 4.108zm4.271-7.418c-.53 0-.96-.43-.96-.96s.43-.96.96-.96.96.43.96.96-.43.96-.96.96zm-1.604 3.31c0 1.473-1.194 2.667-2.667 2.667s-2.667-1.194-2.667-2.667c0-1.473 1.194-2.667 2.667-2.667s2.667 1.194 2.667 2.667zm4.333-12h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm.952 15.298c-.132 2.909-1.751 4.521-4.653 4.654-.854.039-1.126.048-3.299.048s-2.444-.009-3.298-.048c-2.908-.133-4.52-1.748-4.654-4.654-.039-.853-.048-1.125-.048-3.298 0-2.172.009-2.445.048-3.298.134-2.908 1.748-4.521 4.654-4.653.854-.04 1.125-.049 3.298-.049s2.445.009 3.299.048c2.908.133 4.523 1.751 4.653 4.653.039.854.048 1.127.048 3.299 0 2.173-.009 2.445-.048 3.298z" />
+                                                            </svg></a>
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td class="p-3 w-25 text-center" th:text="${perfil.bio}"></td>
+                                            <td class="">
+                                                <a th:href="@{'/id/'+${perfil.id}}"
+                                                    class="d-flex justify-content-center btn btn-large btn-warning"><i
+                                                        class="fa fa-search p-1"></i>Visualizar</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+                <div th:replace="compartilhado/baixo"></div>

@@ -1,8 +1,6 @@
 package com.web.tornese.SpringWeb.models;
 
 import java.sql.Date;
-import java.time.Year;
-import java.util.Calendar;
 
 import javax.persistence.*;
 
@@ -33,11 +31,10 @@ public class Perfil {
   @Column(name = "senha", length = 255, nullable = false)
   private String senha;
 
-  @Column(name = "bio")
+  @Column(name = "bio", length = 100)
   @Type(type = "text")
   private String bio;
 
-  @Column(name="idade")
+  @Column(name="idade", nullable = false)
   private Date idade;
-
 }

@@ -30,7 +30,7 @@ public class PerfisController {
   }
 
   //Editar perfil
-   @RequestMapping("/perfil/{id}")
+   @RequestMapping("/editar/{id}")
   public String busca(@PathVariable int id, Model model){
     Optional<Perfil> perfis = repo.findById(id);
     try{
@@ -84,9 +84,9 @@ public class PerfisController {
   //Botão de atualização de perfil
   @PostMapping("/perfis/{id}/atualizar")
   public String atualizar(@PathVariable int id, Perfil Perfil){
-    // if(!repo.exist(id)){
+    //if(!repo.exist(id)){
     if(!repo.existsById(id)){
-      return "redirect:/perfis";
+      return "redirect:/edicao/{id}";
     }
     repo.save(Perfil);
     return "redirect:/meuPerfil/{id}";
@@ -112,4 +112,6 @@ public class PerfisController {
     repo.deleteById(id);
     return "redirect:/login";
   }
+
+  
 }

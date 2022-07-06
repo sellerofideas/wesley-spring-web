@@ -1,5 +1,7 @@
 package com.web.tornese.SpringWeb.repositorio;
 
+import java.sql.Date;
+import java.time.Period;
 import java.util.Optional;
 
 import com.web.tornese.SpringWeb.models.Perfil;
@@ -18,4 +20,9 @@ public interface PerfisRepo extends CrudRepository<Perfil, Integer> {
 	//public ArrayList<Administrador> findAllByNomeEmail(@Param("nome") String nome, @Param("email") String email);
 
   Optional<Perfil> findById(Integer id);
+
+
+  Optional<Period> findById(Date id);
+  @Query(value="select * from perfis where idade = :idade", nativeQuery = true)
+  public Perfil CalculaIdade(Date idade);
 }

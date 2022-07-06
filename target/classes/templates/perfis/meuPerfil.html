@@ -10,10 +10,16 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="perfil.css">
-  <title>Making-of - A maior comunidade de artistas independentes</title>
+  <title>Making-of - A melhor comunidade de artistas independentes</title>
   <style>
     .show-perfil {
       margin-top: -211px;
+    }
+
+    .show-perfil li:hover{
+      background-color: blue;
+      border-radius: 5px;
+      padding: 3px;
     }
 
     .img-perfil {
@@ -43,8 +49,9 @@
 
     .show-nav li:hover {
       background-color: blue;
-      border-radius: 5px;
-      color: white;
+      border-radius: .25rem;
+      padding: .375rem .75rem !important;
+      color: white !important;
     }
 
     .bg-degrade {
@@ -190,24 +197,24 @@
       <div class="row p-3 mx-0 border-bottom border-primary d-flex">
         <div class="col-6 d-flex justify-content-start info-perfil">
           <ul>
-            <p class="d-inline-block fs-6 p-0 m-0" th:text="${perfil.idade}">Idade,</p>
+            <p class="d-inline-block fs-6 p-0 m-0" id="idade" th:text="${perfil.idade}">Idade,</p>
             <p class="d-inline-block fs-6 p-0 m-0" <!--th:text="${perfil.local}" -->Local</h3><br>
             <p class="d-inline-block fs-6 p-0 m-0"><span th:text="${perfil.bio}">Bio</span></p>
           </ul>
         </div>
-        <div class="col d-flex justify-content-end">
+        <div class="col d-flex justify-content-end show-nav">
           <ul class="m-0">
             <a href="#sobre" class="text-decoration-none">
-              <li class="d-inline-block p-2 mx-1">Sobre</li>
+              <li class="d-inline-block btn mx-1 text-primary">Sobre</li>
             </a>
             <a href="#polaroide" class="text-decoration-none">
-              <li class="d-inline-block p-2 mx-1">Polaroide</li>
+              <li class="d-inline-block btn mx-1 text-primary">Polaroide</li>
             </a>
             <a href="#monologos" class="text-decoration-none">
-              <li class="d-inline-block p-2 mx-1">Monologos</li>
+              <li class="d-inline-block btn mx-1 text-primary">Monologos</li>
             </a>
             <a href="#portifolio" class="text-decoration-none">
-              <li class="d-inline-block p-2 mx-1">Portifólio</li>
+              <li class="d-inline-block btn mx-1 text-primary">Portifólio</li>
             </a>
           </ul>
         </div>
@@ -261,14 +268,14 @@
               <div class="border-bottom border-primary p-2">
                 <h5>Dados de contato:</h5>
                 <li>Nome:
-                  <span th:text="${perfil.nome}"></span>
+                  <span class="text-primary fw-bold" th:text="${perfil.nome}"></span>
                 </li>
                 <li>Localizaçã:
                   <!--span th:text="${perfil.local}"-->
                   <!--!--span-->
                 </li>
                 <li>Email:
-                  <p class="d-inline-block m-0" th:text="${perfil.email}"></p>
+                  <p class="d-inline-block fw-bold m-0 text-primary" th:text="${perfil.email}"></p>
                 </li>
                 <li>Fã pix:
                   <!--span th:text="${perfil.pix}"-->
@@ -432,7 +439,7 @@
   </footer>
 
   <!-- Optional JavaScript; choose one of the two! -->
-
+  <script src="../../static/js/demo/idade.js"></script>
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

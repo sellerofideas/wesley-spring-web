@@ -6,14 +6,16 @@
   <main class="d-sm-flex align-items-center justify-content-between mb-4">
     <div class="container-fluid">
       <div class="d-flex justify-content-center">
-        <label class="main-label m-3 text-center text-gray-800">Olá <span th:text="${nomeArtistico}"></span>! <div>Aqui
-            estão suas novidades Making-of</div></label>
+        <label class="main-label m-3 text-center text-gray-800">
+          <div>Making-of</div>
+          <div> Area administrativa</div> Olá <span th:text="${nomeArtistico}"></span>!
+        </label>
       </div>
       <!-- Page Heading -->
 
 
       <div class="row">
-        <div class="card shadow m-4 w-50">
+        <div class="card shadow m-4 col-12 col-lg-5">
           <!-- Card Header - Accordion -->
           <a href="#depoimentos" class="d-block card-header py-3" data-toggle="collapse" role="button"
             aria-expanded="false" aria-controls="collapseCardExample">
@@ -23,16 +25,16 @@
           <!-- Card Content - Collapse -->
           <div class="collapse" id="depoimentos">
             <div class="card-body">
-              Em breve os depoimentos de colegas sobre você aparecerão aqui e você poderá torná-las públicas se quiser!
+              Em breve os depoimentos de colegas sobre você aparecerão aqui e você poderá torná-los públicos se quiser!
             </div>
           </div>
         </div>
 
         <!-- Dropdown Card Example -->
-        <div class="card shadow w-25 m-4">
+        <div class="d-flex card shadow m-4 col-12 col-lg-5 text-center">
           <!-- Card Header - Dropdown -->
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Meu perfil</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Configurações de perfil</h6>
             <div class="dropdown no-arrow">
               <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
@@ -56,12 +58,12 @@
             <div class="p-1 text-center border border-dark">www.making-of.com/id/<span th:text="${id}"></span></div>
           </div>
           <div class="p-3 d-flex justify-content-center">
-            <a href="#" th:href="@{'/perfil/' + ${id}}" class="btn btn-warning px-3">Editar perfil</a>
+            <a href="#" th:href="@{'/editar/' + ${id}}" class="btn btn-warning px-3">Editar perfil</a>
             <!--a th:href="@{'/perfil/' + ${perfil.id}} + '/atualizar'" class="btn btn-warning">Alterar</a-->
           </div>
         </div>
 
-        <div class="card shadow w-50 m-4">
+        <div class="card shadow m-4 col-12 col-lg-5">
           <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Oportunidades<span
                 class="mx-2 invisible badge badge-danger badge-counter">0</span></h6>
@@ -70,11 +72,12 @@
             Conheças as oportunidades disponíveis para seu perfil agora!
             <a href="#" class="btn btn-primary m-3 disabled">Encontrar</a>
           </div>
-          <div class="m-3"><img class="p-3 border border-dark" src="https://source.unsplash.com/550x200/?film" alt="">
+          <div class="m-3"><img class="p-3 border border-dark col-12" src="https://source.unsplash.com/550x200/?film"
+              alt="">
           </div>
         </div>
 
-        <div class="card shadow m-4 w-25">
+        <div class="card shadow m-4 col-12 col-lg-5">
           <!-- Card Header - Accordion -->
           <a href="#feedbacks" class="d-block card-header py-3" data-toggle="collapse" role="button"
             aria-expanded="false" aria-controls="collapseCardExample">
@@ -88,7 +91,7 @@
             <div class="card-body">
               Aqui aparecerão os feedbacks de seus colegas sobre você e seu trabalho, essa parte é fundamental para
               aprimorarmos nosso trabalho. Os feedbacks poderão ser anônimos ou não, você também terá a opção de
-              desativar feedbacks.
+              desativar feedbacks em breve.
             </div>
           </div>
         </div>
@@ -253,9 +256,10 @@
 
       <hr>
       <div>
-        <p>Configurações de conta</p>
+        <h2>Configurações de conta</h2>
+        <p>Excluir conta?</p>
         <a href="#"
-          th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \'' + @{/perfil/{id}(id=${id})} + '/excluir\' } '"
+          th:onclick="'if(confirm(\'Ao excluir sua conta seus dados serão excluidos e você perderá o acesso a plataforma e ao seu perfil compartilhado com agencias e produtoras. Você tem certeza de que quer fazer isso?\')) { window.location.href = \'' + @{/perfil/{id}(id=${id})} + '/excluir\' } '"
           class="btn btn-danger">Excluir</a>
         <!--a-- href="#" th:onclick="'if(confirm(\'Confirma ?\')) { window.location.href = \'' + @{/perfil/{id}(id=${perfil.id})} + '/excluir\' } '" class="btn btn-danger">Excluir</!--a-->
       </div>
