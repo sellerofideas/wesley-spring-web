@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.web.tornese.SpringWeb.Servico.CookieService;
 import com.web.tornese.SpringWeb.models.Perfil;
-import com.web.tornese.SpringWeb.repositorio.PerfisRepo;
+import com.web.tornese.SpringWeb.models.repositorio.PerfisRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

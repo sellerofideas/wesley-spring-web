@@ -12,47 +12,18 @@
   <link rel="stylesheet" href="perfil.css">
   <title>Making-of - A melhor comunidade de artistas independentes</title>
   <style>
-    .show-perfil {
-      margin-top: -211px;
+    * {
+      margin: 0;
+      padding: 0;
     }
 
-    .show-perfil li:hover{
-      background-color: blue;
-      border-radius: 5px;
-      padding: 3px;
-    }
-
-    .img-perfil {
-      margin-bottom: -71px;
+    #top-info,
+    #sub-info {
+      top: -40px;
       position: relative;
-      z-index: 1;
     }
 
-    .name-perfil {
-      margin-left: 9px;
-      margin-top: 155px;
-      width: 100% !important;
-    }
 
-    .name-perfil h2 {
-      font-size: 1.5em;
-      position: relative;
-      z-index: 1;
-    }
-
-    .info-perfil {
-      margin-top: -17px;
-      margin-left: 280px;
-      font-size: .7em;
-      width: 480px;
-    }
-
-    .show-nav li:hover {
-      background-color: blue;
-      border-radius: .25rem;
-      padding: .375rem .75rem !important;
-      color: white !important;
-    }
 
     .bg-degrade {
       position: relative;
@@ -62,70 +33,14 @@
       z-index: 1;
     }
 
-    .dados {
-      width: 369px;
-      margin: 0 0 16px 30px;
-    }
 
-    .btn-dados {
-      width: 100%;
-    }
-
-    .card-body-dados {
-      width: 100%;
-      position: absolute;
-      left: 0;
-      background-color: aliceblue;
-    }
 
     .card-body ul {
-      list-style: none;
       display: none;
     }
 
     input:checked+.card-body ul {
       display: block;
-    }
-
-    .dados label {
-      display: block;
-    }
-
-    #patrocinador img {
-      max-width: 367px;
-      margin-top: 187px;
-      margin-left: -12px;
-    }
-
-    #sobre {
-      height: auto;
-    }
-
-    .text-sobre {
-      width: 400px;
-    }
-
-    .img-sobre img {
-      border-radius: 15px;
-    }
-
-    #video-principal {
-      width: 100%;
-      height: 265px;
-    }
-
-    .video1 {
-      width: 460px;
-      height: 259px;
-    }
-
-    .videos-secundarios iframe {
-      width: 200px;
-      height: 114px;
-    }
-
-    .monologo-card {
-      width: 714px;
     }
 
     .redes {
@@ -144,7 +59,7 @@
   <header class="p-3 bg-black text-white">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/"
+        <a href="/login"
           class="margin-rigth d-flex align-items-center align-items-ms-center mb-2 mb-lg-0 text-white text-decoration-none">
           <svg class="bi me-2" width="40" height="32" role="img" aria-label="logo-makingof">
             <use xlink:href="#logo-makingof" />
@@ -164,7 +79,7 @@
         </form>
 
         <div class="text-end">
-          <a type="button" class="btn btn-outline-light me-2 text-decoration-none" href="/login">Login</a>
+          <a href="../login/index.html" class="btn btn-outline-light me-2 text-decoration-none">Login</a>
           <a type="button" class="btn btn-warning text-decoration-none" href="/novo">Inscrever-se</a>
         </div>
       </div>
@@ -173,48 +88,48 @@
 
 
   <section>
-    <div class="container pb-3">
+    <div class="flex-container pb-3">
       <div class="row">
-        <div class="col-12">
-          <img class="d-block w-100" src="https://source.unsplash.com/1400x600/?film" alt="First slide">
-          <div class="w-100 d-block bg-degrade"></div>
+        <div class="">
+          <img class="w-100" src="https://source.unsplash.com/1400x600/?film" alt="First slide">
+          <div class=""></div>
         </div>
       </div>
-      <div class="show-perfil row">
+
+      <div id="top-info" class="row">
         <div class="">
-          <div class="p-3 d-flex col-12">
-            <div class="col-3">
-              <img class="img-perfil rounded-circle" src="https://source.unsplash.com/250x250/?perfil" alt="">
-            </div>
-            <div>
-              <div class="col-3 name-perfil">
-                <h2 class="text-white text-start d-block" th:text="${perfil.nomeArtistico}">Nome</h2>
-              </div>
+          <div class="d-flex justify-content-center">
+            <img class="rounded-circle" src="https://source.unsplash.com/250x250/?perfil" alt="">
+          </div>
+          <div>
+            <div class="m-3">
+              <h2 class="text-center" th:text="${perfil.nomeArtistico}">Nome</h2>
             </div>
           </div>
         </div>
       </div>
-      <div class="row p-3 mx-0 border-bottom border-primary d-flex">
-        <div class="col-6 d-flex justify-content-start info-perfil">
-          <ul>
-            <p class="d-inline-block fs-6 p-0 m-0" id="idade" th:text="${perfil.idade}">Idade,</p>
-            <p class="d-inline-block fs-6 p-0 m-0" <!--th:text="${perfil.local}" -->Local</h3><br>
-            <p class="d-inline-block fs-6 p-0 m-0"><span th:text="${perfil.bio}">Bio</span></p>
-          </ul>
-        </div>
-        <div class="col d-flex justify-content-end show-nav">
-          <ul class="m-0">
+
+      <div id="sub-info">
+        <ul class="p-0 m-5">
+          <p class="m-0 text-center" id="idade"><span th:text="${perfil.idade}">Idade</span>, <span
+              <!--th:text="${perfil.local}" -->Local</span></h3>
+          </p>
+          <p class="m-0 text-center"><span th:text="${perfil.bio}">Bio</span></p>
+        </ul>
+
+        <div class="mt-3">
+          <ul class="d-flex justify-content-center p-0 m-0">
             <a href="#sobre" class="text-decoration-none">
-              <li class="d-inline-block btn mx-1 text-primary">Sobre</li>
+              <li class="d-inline-block btn  text-primary">Sobre</li>
             </a>
             <a href="#polaroide" class="text-decoration-none">
-              <li class="d-inline-block btn mx-1 text-primary">Polaroide</li>
+              <li class="d-inline-block btn  text-primary">Polaroide</li>
             </a>
             <a href="#monologos" class="text-decoration-none">
-              <li class="d-inline-block btn mx-1 text-primary">Monologos</li>
+              <li class="d-inline-block btn  text-primary">Monologos</li>
             </a>
             <a href="#portifolio" class="text-decoration-none">
-              <li class="d-inline-block btn mx-1 text-primary">Portifólio</li>
+              <li class="d-inline-block btn  text-primary">Portifólio</li>
             </a>
           </ul>
         </div>
@@ -224,8 +139,8 @@
 
   <section id="polaroide">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="card col-8 mb-3">
+      <div class="row">
+        <div class="card ">
           <div class="card-body polaroide-card">
             <div id="carouselExampleFade" class="carousel" data-bs-ride="carousel">
               <div class="carousel-inner">
@@ -249,22 +164,22 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden"></span>
               </button>
-              <h5 class="card-title p-3 text-center">Polaroides</h5>
+              <h5 class="card-title text-center py-2">Polaroides</h5>
               <div class="d-flex justify-content-center">
                 <a href="https://api.whatsapp.com/send?phone=+5544988594579&amp;text=Oi%20gostaria%20de%20me%20cadastrar%20na%20plataforma%20como%20produtor(a)%20ou%20agente%20me%20chame:"
-                  class="btn btn-primary w-25 text-decoration-none">Contactar</a>
+                  class="btn btn-primary text-decoration-none w-50">Contactar</a>
               </div>
             </div>
           </div>
         </div>
 
 
-        <div class="card col-4 dados">
-          <input type="checkbox" class="input-dados invisible" id="input-dados">
-          <div class="card-body card-body-dados border-bottom border-primary">
-            <label for="input-dados"><a class="btn btn-primary btn-dados text-decoration-none">DADOS
+        <div class="card">
+          <input type="checkbox" class=" invisible" id="input-dados">
+          <div class="card-body border-bottom border-primary">
+            <label for="input-dados" class="w-100"><a class="btn btn-primary btn-dados text-decoration-none w-100">DADOS
                 PESSOAIS</a></label>
-            <ul class="p-3  list-style-none">
+            <ul class="p-3 list-unstyled">
               <div class="border-bottom border-primary p-2">
                 <h5>Dados de contato:</h5>
                 <li>Nome:
@@ -320,13 +235,13 @@
                 </li>
               </div>
             </ul>
-            <h5 class="card-title pt-3">Você é produtor (a) ou agente?</h5>
-            <p class="card-text">Cadastre-se por aqui! <span
+            <h5 class="card-title pt-3 text-center">Você é produtor (a) ou agente?</h5>
+            <p class="card-text text-center">Cadastre-se por aqui! <span
                 href="https://api.whatsapp.com/send?phone=+5544988594579&amp;text=Oi%20gostaria%20de%20me%20cadastrar%20na%20plataforma%20como%20produtor(a)%20ou%20agente%20me%20chame:"
                 class="btn btn-warning text-white">Cadastrar</span></p>
           </div>
-          <div id="patrocinador">
-            <img src="https://source.unsplash.com/367x300/" alt="">
+          <div id="" class="d-flex justify-content-center ">
+            <img src="https://source.unsplash.com/367x300/" alt="" class="w-100">
           </div>
         </div>
       </div>
@@ -336,20 +251,23 @@
 
   <section class="mb-5 bg-dark p-1" id="sobre">
     <div class="container text-white">
-      <div class="row img-sobre border border-ligth m-5">
-        <div class="col-4">
-          <img class="m-5 w-75 border border-primary" src="https://source.unsplash.com/200x200/?perfil" alt="">
+      <div class="row justify-content-center">
+        <div class="d-flex justify-content-center my-5">
+          <img class="rounded-circle" src="https://source.unsplash.com/200x200/?perfil" alt="">
         </div>
-        <div class="col-8 my-5 w-auto">
-          <h1 class="border-bottom border-ligth">Quem é <span th:text="${perfil.nomeArtistico}">perfil</span>?</h1>
-          <p class="text-sobre" <!--th:text="${perfil.sobre}" -->Lorem, ipsum dolor sit amet consectetur adipisicing
+        <div class="d-flex text-center row">
+          <h1 class="w-100 col-12 justify-content-center">Quem é <span th:text="${perfil.nomeArtistico}">perfil</span>?
+          </h1>
+          <p class="" <!--th:text="${perfil.sobre}" -->Lorem, ipsum dolor sit amet consectetur adipisicing
             elit. Dolor nihil molestiae
             distinctio nobis blanditiis
             mollitia esse soluta, itaque ad quo recusandae totam incidunt placeat nesciunt, cum fuga repudiandae laborum
             ea.</p>
-          <a href="#monologos" class="btn btn-outline-primary">Videos</a>
-          <a href="#polaroide" class="btn btn-outline-primary">Fotos</a>
-          <a href="#portifolio" class="btn btn-outline-primary">Portifólio</a>
+          <div class="d-flex justify-content-center p-5">
+            <a href="#monologos" class="btn btn-outline-primary w-50 mx-1">Videos</a>
+            <a href="#polaroide" class="btn btn-outline-primary w-50 mx-1">Fotos</a>
+            <a href="#portifolio" class="btn btn-outline-primary w-50 mx-1">Portifólio</a>
+          </div>
         </div>
       </div>
     </div>
@@ -358,49 +276,44 @@
   <section id="monologos">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="card col-8 h-100">
-          <div class="card-body monologo-card">
+        <div class="card ">
+          <div class="card-body ">
             <div>
               <div class="d-flex">
-                <div class="" id="video-principal">
-                  <iframe class="video1" src="https://www.youtube.com/embed/-3Rl-Z-pf7c" allowfullscreen></iframe>
+                <div class="w-50 p-1" id="">
+                  <iframe class="w-100" src="https://www.youtube.com/embed/-3Rl-Z-pf7c" allowfullscreen></iframe>
                 </div>
-                <div class="videos-secundarios">
-                  <div class="pb-3">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/-3Rl-Z-pf7c"
-                      allowfullscreen></iframe>
-                  </div>
+                <div class="w-50 p-1">
                   <div class="">
-                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/-3Rl-Z-pf7c"
-                      allowfullscreen></iframe>
+                    <iframe class="w-100" src="https://www.youtube.com/embed/-3Rl-Z-pf7c" allowfullscreen></iframe>
                   </div>
                 </div>
               </div>
               <h5 class="card-title text-center">Monólogos</h5>
               <div class="d-flex justify-content-center">
-                <a href="#" class="btn btn-primary w-25">Ver mais</a>
+                <a href="#" class="btn btn-primary w-50">Ver mais</a>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="card col-4 redes">
+        <div class="card">
           <div class="card-body">
             <h3 class="text-center py-3">REDES SOCIAIS</h3>
             <h5 class="card-title text-center">Me siga nas redes sociais!</h5>
             <p class="card-text text-center">Acompanhe minha carreira clicando nos icones abaixo.</p>
             <div class="d-flex justify-content-center">
-              <a href="https://instagram.com" target="_blank" rel="external" alt><svg xmlns="http://www.w3.org/2000/svg"
+              <a href="https://instagram.com" target="_blank" rel="external" class="p-3"><svg xmlns="http://www.w3.org/2000/svg"
                   width="24" height="24" viewBox="0 0 24 24">
                   <path
                     d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                 </svg></a>
-              <a href="https://facebook.com" target="_blank" rel="external"><svg xmlns="http://www.w3.org/2000/svg"
+              <a href="https://facebook.com" target="_blank" rel="external" class="p-3"><svg xmlns="http://www.w3.org/2000/svg"
                   width="24" height="24" viewBox="0 0 24 24">
                   <path
                     d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 10h-2v2h2v6h3v-6h1.82l.18-2h-2v-.833c0-.478.096-.667.558-.667h1.442v-2.5h-2.404c-1.798 0-2.596.792-2.596 2.308v1.692z" />
                 </svg></a>
-              <a href="https://twitter.com" target="_blank" rel="external"><svg xmlns="http://www.w3.org/2000/svg"
+              <a href="https://twitter.com" target="_blank" rel="external" class="p-3"><svg xmlns="http://www.w3.org/2000/svg"
                   width="24" height="24" viewBox="0 0 24 24">
                   <path
                     d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.5 8.778c-.441.196-.916.328-1.414.388.509-.305.898-.787 1.083-1.362-.476.282-1.003.487-1.564.597-.448-.479-1.089-.778-1.796-.778-1.59 0-2.758 1.483-2.399 3.023-2.045-.103-3.86-1.083-5.074-2.572-.645 1.106-.334 2.554.762 3.287-.403-.013-.782-.124-1.114-.308-.027 1.14.791 2.207 1.975 2.445-.346.094-.726.116-1.112.042.313.978 1.224 1.689 2.3 1.709-1.037.812-2.34 1.175-3.647 1.021 1.09.699 2.383 1.106 3.773 1.106 4.572 0 7.154-3.861 6.998-7.324.482-.346.899-.78 1.229-1.274z" />
@@ -414,13 +327,13 @@
 
   <section class="my-5 bg-dark p-1" id="portifolio">
     <div class="container text-white">
-      <div class="row img-sobre border border-ligth m-5">
-        <div class="col-4">
-          <img class="m-5 w-75 border border-primary" src="https://source.unsplash.com/200x200/?book" alt="">
+      <div class="row border border-ligth m-5">
+        <div class="d-flex justify-content-center my-3">
+          <img class="rounded border-primary" src="https://source.unsplash.com/200x200/?book" alt="">
         </div>
-        <div class="col-8 my-5 w-auto">
+        <div class="my-5 w-auto">
           <h1 class="border-bottom border-ligth">Meu portifólio</h1>
-          <p class="text-sobre">Baixe meu portifólio para me conhecer melhor e fazer sua avaliação do meu perfil.</p>
+          <p class="">Baixe meu portifólio para me conhecer melhor e fazer sua avaliação do meu perfil.</p>
           <a href="#" class="disabled w-100 btn btn-outline-primary" download="portifolio.pdf"
             type="application/pdf">Baixar meu portifólio</a>
         </div>
@@ -431,7 +344,7 @@
   <footer>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-12 bg-dark text-white text-center p-5">
+        <div class="bg-dark text-white text-center p-5">
           <p>Copyright &copy; Making-of 2022</p>
         </div>
       </div>

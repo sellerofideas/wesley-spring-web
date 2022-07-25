@@ -1,4 +1,4 @@
-package com.web.tornese.SpringWeb.repositorio;
+package com.web.tornese.SpringWeb.models.repositorio;
 
 import java.sql.Date;
 import java.time.Period;

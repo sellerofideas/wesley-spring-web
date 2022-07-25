@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.web.tornese.SpringWeb.models.Perfil;
-import com.web.tornese.SpringWeb.repositorio.PerfisRepo;
+import com.web.tornese.SpringWeb.models.repositorio.PerfisRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

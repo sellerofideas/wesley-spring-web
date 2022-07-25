@@ -14,7 +14,7 @@
       <!-- Page Heading -->
 
 
-      <div class="row">
+      <div class="row d-flex justify-content-center">
         <div class="card shadow m-4 col-12 col-lg-5">
           <!-- Card Header - Accordion -->
           <a href="#depoimentos" class="d-block card-header py-3" data-toggle="collapse" role="button"
@@ -46,15 +46,15 @@
                 <a class="dropdown-item" th:href="@{'/id/'+${id}}">Meu perfil</a>
                 <a class="dropdown-item" href="/perfis">Ver outros perfis</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Outra opção</a>
+                <!--a class="dropdown-item" href="#">Outra opção</a-->
               </div>
             </div>
           </div>
           <!-- Card Body -->
-          <div class="card-body text-dark">Gerencie seu Perfil Making-of por aqui
+          <div class="card-body">Gerencie seu Perfil Making-of por aqui
           </div>
           <div class="p-3 mx-auto">
-            <p class="mb-0">Link do seu perfil:</p>
+            <p class="mb-0">Compartilhe o link do seu perfil:</p>
             <div class="p-1 text-center border border-dark">www.making-of.com/id/<span th:text="${id}"></span></div>
           </div>
           <div class="p-3 d-flex justify-content-center">
@@ -89,9 +89,7 @@
           <!-- Card Content - Collapse -->
           <div class="collapse" id="feedbacks">
             <div class="card-body">
-              Aqui aparecerão os feedbacks de seus colegas sobre você e seu trabalho, essa parte é fundamental para
-              aprimorarmos nosso trabalho. Os feedbacks poderão ser anônimos ou não, você também terá a opção de
-              desativar feedbacks em breve.
+              Aqui aparecerão os feedbacks de seus colegas sobre você e seu trabalho, essa parte é fundamental para evoluirmos como artistas. Você também terá a opção de desativar feedbacks em breve. Fique tranquilo, eles só aparecem para você!
             </div>
           </div>
         </div>
@@ -108,7 +106,7 @@
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Conclusão do Curso
+                  <div class="text-uppercase mb-3">Conclusão do Curso
                   </div>
                   <div class="row no-gutters align-items-center">
                     <div class="col-auto">
@@ -130,12 +128,12 @@
           </div>
         </div>
 
-        <div class="col-xl-3 col-md-6 mb-4 invisible">
+        <!--div class="col-xl-3 col-md-6 mb-4">
           <div class="card border-left-primary shadow h-100 py-2">
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                  <div class="text-uppercase mb-3">
                     JOBS (REALIZADOS)</div>
                   <div class="h5 mb-0 font-weight-bold text-gray-800">$00,000</div>
                 </div>
@@ -145,14 +143,14 @@
               </div>
             </div>
           </div>
-        </div>
+        </!--div>
 
-        <div class="col-xl-3 col-md-6 mb-4 invisible">
+        <div class="col-xl-3 col-md-6 mb-4">
           <div class="card border-left-primary shadow h-100 py-2">
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                  <div class="text-uppercase mb-3">
                     VALORES (RECEBIDOS)</div>
                   <div class="h5 mb-0 font-weight-bold text-gray-800">$00,000</div>
                 </div>
@@ -164,12 +162,12 @@
           </div>
         </div>
 
-        <div class="col-xl-3 col-md-6 mb-4 invisible">
+        <div class="col-xl-3 col-md-6 mb-4">
           <div class="card border-left-success shadow h-100 py-2">
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                  <div class="text-uppercase mb-3">
                     Valores (A receber)</div>
                   <div class="h5 mb-0 font-weight-bold text-gray-800">$000,000</div>
                 </div>
@@ -181,12 +179,12 @@
           </div>
         </div>
 
-        <div class="col-xl-3 col-md-6 mb-4 invisible">
+        <div class="col-xl-3 col-md-6 mb-4">
           <div class="card border-left-warning shadow h-100 py-2">
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                  <div class="text-uppercase mb-3">
                     SOLICITAÇÕES PENDENTES</div>
                   <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
                 </div>
@@ -199,12 +197,12 @@
         </div>
 
 
-        <div class="col-xl-3 col-md-6 mb-4 invisible">
+        <div class="col-xl-3 col-md-6 mb-4">
           <div class="card border-left-warning shadow h-100 py-2">
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                  <div class="text-uppercase mb-3">
                     Contribuições com a comunidade</div>
                   <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
                 </div>
@@ -216,12 +214,12 @@
           </div>
         </div>
 
-        <div class="col-xl-3 col-md-6 mb-4 invisible">
+        <div class="col-xl-3 col-md-6 mb-4">
           <div class="card border-left-warning shadow h-100 py-2">
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                  <div class="text-uppercase mb-3">
                     SOLICITAÇÕES PENDENTES</div>
                   <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
                 </div>
@@ -233,12 +231,12 @@
           </div>
         </div>
 
-        <div class="col-xl-3 col-md-6 mb-4 invisible">
+        <div-- class="col-xl-3 col-md-6 mb-4">
           <div class="card border-left-warning shadow h-100 py-2">
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                  <div class="text-uppercase mb-3">
                     SOLICITAÇÕES PENDENTES</div>
                   <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
                 </div>
@@ -248,7 +246,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div-->
       </div>
 
 

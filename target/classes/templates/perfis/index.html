@@ -47,11 +47,6 @@
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-black topbar mb-4 static-top shadow">
 
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
-                    <!-- Topbar Search -->
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
@@ -89,7 +84,8 @@
                                 </form>
                             </div>
                         </li>
-                        <ul class="center flex-wrap nav col-12 col-lg-auto m-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        <ul
+                            class="center flex-wrap nav col-12 col-lg-auto m-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                             <li><a href="/home" class="nav-link px-2 text-secondary">Home</a></li>
                             <li><a href="/home/#produtos" class="nav-link px-2 text-white">Produtos</a></li>
                             <li><a href="#off play" class="nav-link px-2 text-white">OFF Play</a></li>
@@ -106,75 +102,86 @@
                     </ul>
                 </nav>
                 <!-- End of Topbar -->
+
                 <!-- Begin Page Content -->
                 <div class="container">
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <!-- Page Heading -->
-                        <div class="d-flex">
-                            <h1 class="h3 my-auto p-3 text-gray-800">Perfis Making-of</h1>
-                            <div>
-                                <p class="pt-3 pb-0 my-auto text-center">Encontre o profissional certo para seu projeto audiovisual
-                                    aqui!</p><p class="text-center">Cadastre-se para ser encontrado, ou como produtor(a) e agente aqui <button class="btn btn-outline-primary">Cadastrar</button></p>
+                        <div class="p-3">
+                            <h1 class="h3 my-auto p-3 text-gray-800 text-center">Perfis Making-of</h1>
+                            <div class="my-auto text-center">
+                                <p>Encontre o profissional certo para seu projeto
+                                    audiovisual ou cadastre-se para ser encontrado!</p>
+                                <p>Você é produtor ou agencia? Cadastre-se por aqui </p>
+                                <div class=""><button
+                                        class="btn btn-outline-warning mx-auto text-dark">Cadastrar</button></div>
                             </div>
                         </div>
+
                         <div class="card-header">
                         </div>
                         <div class="card-body">
-                            <div class="">
+                            <div class="w-100">
                                 <table class="w-100" id="dataTable" cellspacing="0">
                                     <thead class="border-bottom">
                                         <tr>
                                             <th class="text-center">Perfis</th>
-                                            <th class="text-center">Contato</th>
-                                            <th class="text-center">Bio</th>
-                                            <th class="text-center">Visualizar</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th class="text-center">Perfis</th>
-                                            <th class="text-center">Contato</th>
-                                            <th class="text-center">Bio</th>
-                                            <th class="text-center">Visualizar</th>
                                         </tr>
                                     </tfoot>
-                                    <tbody>
-                                        <tr class="border-bottom" th:each="perfil:${perfil}">
+                                    <tbody class="d-flex flex-wrap">
+                                        <tr class="border-bottom border-dark m-3 p-3 w-100" th:each="perfil:${perfil}">
                                             <td class="py-5 d-flex justify-content-center">
                                                 <img class="rounded-circle px-3"
                                                     src="https://source.unsplash.com/150x150/?film" alt="">
                                             </td>
+                                            <div class="d-flex justify-content-center">
+                                                <td class="p-3 text-center d-flex justify-content-center w-100"
+                                                    th:text="${perfil.bio}"></td>
+                                            </div>
 
-                                            <td class="p-3 text-center">
-                                                <p class="border-bottom" th:text="${perfil.nomeArtistico}">nome Artistico</p>
+                                            <td class="p-3 text-center d-block">
+                                                <p class="border-bottom" th:text="${perfil.nomeArtistico}">nome
+                                                    Artistico</p>
                                                 <div class="">
                                                     (<span th:text="${perfil.idade}">Idade</span>)
                                                     <span> ,local</span>
                                                 </div>
                                                 <span th:text="${perfil.email}"></span>
-                                                <span
-                                                    class="btn btn-success m-0 p-1 d-flex justify-content-center">whatsapp</span>
+
+                                                <span class="d-flex justify-content-center">
+                                                    <a href="https://api.whatsapp.com/send?phone=+5544988594579&text=Oi%20gostaria%20de%20me%20cadastrar%20na%20plataforma%20como%20produtor(a)%20ou%20agente%20me%20chame:"
+                                                        class="btn btn-success w-50">whatsapp</a>
+                                                </span>
+
 
                                                 <div class="p-3 d-flex justify-content-center">
-                                                    <span><a href="https://facebook.com" class="m-1 text-decoration-none"
-                                                            target="_blank" rel="external" alt="facebook">
+                                                    <span><a href="https://facebook.com"
+                                                            class="m-1 text-decoration-none" target="_blank"
+                                                            rel="external" alt="facebook">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                                 height="24" viewBox="0 0 24 24">
                                                                 <path
                                                                     d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-3 7h-1.924c-.615 0-1.076.252-1.076.889v1.111h3l-.238 3h-2.762v8h-3v-8h-2v-3h2v-1.923c0-2.022 1.064-3.077 3.461-3.077h2.539v3z" />
                                                             </svg>
                                                         </a></span>
-                                                    <span><a href="https://linkedin.com" class="m-1 text-decoration-none"
-                                                            target="_blank" rel="external" alt="linkedin">
+                                                    <span><a href="https://linkedin.com"
+                                                            class="m-1 text-decoration-none" target="_blank"
+                                                            rel="external" alt="linkedin">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                                 height="24" viewBox="0 0 24 24">
                                                                 <path
                                                                     d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                                                             </svg>
                                                         </a></span>
-                                                    <span><a href="https://instagram.com" class="m-1 text-decoration-none"
-                                                            target="_blank" rel="external" alt="instagram"><svg
+                                                    <span><a href="https://instagram.com"
+                                                            class="m-1 text-decoration-none" target="_blank"
+                                                            rel="external" alt="instagram"><svg
                                                                 xmlns="http://www.w3.org/2000/svg" width="24"
                                                                 height="24" viewBox="0 0 24 24">
                                                                 <path
@@ -183,15 +190,33 @@
                                                     </span>
                                                 </div>
                                             </td>
-                                            <td class="p-3 w-25 text-center" th:text="${perfil.bio}"></td>
-                                            <td class="">
+
+                                            <td class="d-flex justify-content-center">
                                                 <a th:href="@{'/id/'+${perfil.id}}"
-                                                    class="d-flex justify-content-center btn btn-large btn-warning"><i
-                                                        class="fa fa-search p-1"></i>Visualizar</a>
+                                                    class="d-flex justify-content-center btn btn-large btn-warning w-50"><i
+                                                        class="fa fa-search p-1 "></i>Visualizar</a>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
+
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination">
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
                     </div>
